@@ -2,9 +2,9 @@
 
 Sơ đồ này sẽ làm bạn cảm thấy vui trở lại!
 
-## <a href='https://cdn.rawgit.com/petehouston/react-makes-you-sad/fatigue.svg' target='_blank'>Open in a new tab</a>
+## <a href='https://cdn.rawgit.com/petehouston/react-makes-you-sad/04b4e31729dc943a32460d48a2f633b7cddc893c/fatigue.svg' target='_blank'>Open in a new tab</a>
 
-<img src='https://cdn.rawgit.com/petehouston/react-makes-you-sad/fatigue.svg'>
+<img src='https://cdn.rawgit.com/petehouston/react-makes-you-sad/04b4e31729dc943a32460d48a2f633b7cddc893c/fatigue.svg'>
 
 ## Credits
 
