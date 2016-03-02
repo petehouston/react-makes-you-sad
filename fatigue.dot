@@ -1,0 +1,279 @@
+digraph {
+  unhappy[
+    shape="box",
+    style=rounded,
+    label="React làm bạn thấy buồn phiền?"
+  ]
+  unhappy -> are_you_using_react_boilerplates;
+
+  # Boilerplate Fatigue
+
+  are_you_using_react_boilerplates[
+    shape="diamond",
+    label="Có phải bạn đang
+    học React bằng cách
+    sao chép các project
+    mẫu cơ bản?"
+  ]
+  are_you_using_react_boilerplates -> boilerplates_dont_teach[label="có"]
+  are_you_using_react_boilerplates -> steal_from_boilerplates[label="không"]
+
+  boilerplates_dont_teach[
+    shape="box",
+    label="Học React bằng cách sao chép các
+    boilerplate giống như học nấu ăn bằng cách
+    đi ăn ở các nhà hàng xa hoa. Điều này
+    không hiệu quả. Bạn cần phải bắt đầu từ
+    cơ bản và bỏ qua nỗi sợ của sự thiếu sót.
+    Như thế là không có nền tảng. Mọi người tạo
+    các boilerplate để thể hiện những gì họ làm được
+    hay học được, chứ không phải để giúp bạn
+    học. Chúng được tạo và dành cho các
+    power users, và thường mang tính chất
+    thử nghiệm hơn là quan tâm để sử dụng. Các
+    boilerplat dành được sự quan tâm thường hay bị
+    thổi phồng lên. Nếu như bạn thực sự quan tâm
+    tới React, hãy học theo thứ tự mà Pete Hunt
+    mô tả trong hướng dẫn: https://github.com/petehunt/react-howto.
+    Chẳng mấy chốc bạn sẽ tạo được mẫu boilerplate
+    của riêng bạn."
+  ]
+  boilerplates_dont_teach -> are_you_using_flux
+
+  steal_from_boilerplates[
+    shape="box",
+    label="Mặc dù boilerplates không tốt cho việc
+    học các kĩ thuật tổng hợp, chúng lại khá tiện
+    khi cho thấy cách mà các kĩ thuật này được
+    phối hợp nhau *sau khi* mà bạn cảm thấy thoải
+    mái với mỗi loại một cách độc lập. Đây là một
+    cách hữu hiệu trong việc tìm hiểu công nghệ
+    mới nhưng bạn không nên quá gò bó khi sử dụng
+    chúng. Không nên thực sự bỏ qua các boilerplates.
+    Chỉ nên nhớ rằng mỗi boilerplate là một nhóm các
+    kĩ thuật, không phải nên móng để xây dựng ứng dụng của bạn."
+  ]
+  steal_from_boilerplates -> are_you_using_flux
+
+  # Flux Fatigue
+
+  are_you_using_flux[
+    shape="diamond",
+    label="Bạn đang sử dụng
+    một thư viện Flux
+    (hay Redux)?"
+  ]
+  are_you_using_flux -> is_too_much_flux[label="đúng"]
+  are_you_using_flux -> is_not_enough_flux[label="không"]
+
+  is_too_much_flux[
+    shape="diamond",
+    label="Cái đó có thêm nhiều
+    phần vào trong boilerplate
+    mà không có tác dụng gì không?"
+  ]
+  is_too_much_flux -> remove_flux[label="có"]
+  is_too_much_flux -> are_you_using_bundler[label="không"]
+
+  is_not_enough_flux[
+    shape="diamond",
+    label="Bạn có vài stateful components
+    ở cấp bậc đầu của component mà thường
+    là nguyên nhân của các lỗi?"
+  ]
+  is_not_enough_flux -> add_flux[label="có"]
+  is_not_enough_flux -> are_you_using_bundler[label="không"]
+
+  add_flux[
+    shape="box",
+    label="Cần quan tâm tới việc thêm
+    một thư viện Flux. Nó có thể hỗ
+    trợ mở rộng state để chia sẻ giữa
+    các components và cập nhật đồng bộ."
+  ]
+  add_flux -> are_you_using_bundler
+
+  remove_flux[
+    shape="box",
+    label="Hãy loại bỏ thư viện Flux. Hãy
+    tập làm quen với cấu trúc ứng dụng với
+    React thuần bằng cách đọc 'Thinking in React'
+    trong tài liệu chuẩn."
+  ]
+  remove_flux -> are_you_using_bundler
+
+  # Bundler Fatigue
+
+  are_you_using_bundler[
+    shape="diamond",
+    label="Bạn có đang sử dụng một
+    công cụ đóng gói Javascript nào không
+    (ví dụ: Webpack, Browserify)?"
+  ]
+  are_you_using_bundler -> are_you_working_on_production_app_with_bundler[label="có"]
+  are_you_using_bundler -> are_you_working_on_production_app_without_bundler[label="không"]
+
+  are_you_working_on_production_app_with_bundler[
+    shape="diamond",
+    label="Bạn đang phát triển với
+    ứng dụng sản phẩm hoàn chỉnh?"
+  ]
+  are_you_working_on_production_app_with_bundler -> do_you_know_es2015[label="có"]
+  are_you_working_on_production_app_with_bundler -> remove_bundler[label="không"]
+
+  are_you_working_on_production_app_without_bundler[
+    shape="diamond",
+    label="Bạn đang phát triển với
+    ứng dụng sản phẩm hoàn chỉnh?"
+  ]
+  are_you_working_on_production_app_without_bundler -> add_bundler[label="có"]
+  are_you_working_on_production_app_without_bundler -> do_you_know_es2015[label="không"]
+
+  add_bundler[
+    shape="box",
+    label="Hãy thêm vào một trình đóng gói như
+    một bước để giữ các dependencies dễ quản lí
+    và xử lý code Javascript một cách hiệu quả.
+    Hãy sử dụng công cụ Google Page Speed để đo
+    xem bạn đang làm tốt tới mức nào. Nên nhớ hãy
+    thu gọn và đóng gói môi trường của mã nguồn."
+  ]
+  add_bundler -> do_you_know_es2015
+
+  remove_bundler[
+    shape="box",
+    label="Không cần thiết phải sử dụng trình
+    đóng gói nếu bạn mới chỉ đang học React. Copy
+    https://github.com/jarsbe/react-simple và
+    bắt đầu tìm hiểu mà không cần thực hiện quá
+    trình build. Sử dụng thẻ <script> cho tới khi
+    bạn cảm thấy quen với React và muốn học thêm
+    về cơ chế quản lý module và các trình đóng gói
+    khác nhau."
+  ]
+  remove_bundler -> do_you_know_es2015
+
+  # ES2015 Fatigue
+
+  do_you_know_es2015[
+    shape="diamond",
+    label="Bạn có cảm thấy thoải mái sử dụng
+    các tính năng của ES2015 (ví dụ: lớp,
+    kí hiệu arrows)?"
+  ]
+  do_you_know_es2015 -> use_es5[label="không"]
+  do_you_know_es2015 -> are_you_using_dangerous_features[label="có"]
+
+  use_es5[
+    shape="box",
+    label="Không nên sử dụng ES2015 vội. Bạn không
+    cần biết tới nó để học React. Các thư viện hỗ
+    trợ thường sử dụng cú pháp ES2015 trong tài liệu
+    nhưng bạn thực sự không cần tới các thư viện
+    ngoài đó khi bạn đang học React. Khi nào bạn cảm
+    thấy cần mở rộng hiểu biết về Javascript, https://leanpub.com/understandinges6/read là một
+    hướng dẫn tuyệt vời. Sử dụng http://babeljs.io/repl để kiểm chứng hiểu biết
+    của bạn."
+  ]
+  use_es5 -> do_you_update_packages_asap
+
+  # ESnext Fatigue
+
+  are_you_using_dangerous_features[
+    shape="diamond",
+    label="Bạn có đang sử dụng tính năng
+    thử nghiệm mà không có trong ES2015 không
+    (ví dụ: decorators)?"
+  ]
+  are_you_using_dangerous_features -> can_you_spend_days_on_your_tooling[label="có"]
+  are_you_using_dangerous_features -> do_you_update_packages_asap[label="không"]
+
+  can_you_spend_days_on_your_tooling[
+    shape="diamond",
+    label="Bạn có thể dành nhiều ngày trong
+    việc chỉnh sửa công cụ của bạn vào mỗi vài tuần
+    vì lí do lỗi, không tương thích hay những
+    thay đổi về tiêu chuẩn?"
+  ]
+  can_you_spend_days_on_your_tooling -> do_you_update_packages_asap[label="có"]
+  can_you_spend_days_on_your_tooling -> stick_to_es2015[label="không"]
+
+  stick_to_es2015[
+    shape="box",
+    label="Giữ lại chỉ sử dụng các tính năng
+    trong ES2015, JSX và toán tử spread với object."
+  ]
+  stick_to_es2015 -> do_you_update_packages_asap
+
+  # Semver Fatigue
+
+  do_you_update_packages_asap[
+    shape="diamond",
+    label="Bạn có cập nhật các version major
+    của dependencies mỗi khi chúng release?"
+  ]
+  do_you_update_packages_asap -> give_it_two_months[label="có"]
+  do_you_update_packages_asap -> consider_updating_react[label="không"]
+
+  give_it_two_months[
+    shape="box",
+    label="Trừ khi với React là thư viện được test
+    rất kĩ càng trước khi release, hãy quan tâm tới
+    chuyện giảm tiến độ cập nhật các packages. Bạn
+    có thể thử sử dụng các version mới của dependencies
+    nhưng tốt nhất là nên giữ chúng ở một branch
+    trong vài tháng để chờ cộng đồng tìm và sửa
+    các vấn đề hay gặp phải. Không nên quyết định
+    dựa vào việc sự thiếu sót. Khi đọc các tài liệu
+    cũ hơn, đừng quên kiểm tra các tag releases trên
+    Github, ví dụ:
+    https://github.com/reactjs/react-router/tree/0.13.x/doc"
+  ]
+  give_it_two_months -> are_you_still_sad
+
+  consider_updating_react[
+    shape="box",
+    label=" Như thế này là tốt. Tuy nhiên, chúng tôi
+    khuyên bạn nên thử (trên một branch khác) version
+    mới của React mỗi khi chúng được phát hành. Không
+    giống như các thư viện cộng đồng, chúng được test
+    rất kĩ càng bởi Facebook. Hãy để mắt tới các ghi
+    chú trong release vì chúng liên kết tới các phần
+    mã nguồn hỗ trợ tự động cập nhật nâng cấp version cho bạn."
+  ]
+  consider_updating_react -> are_you_still_sad
+
+  # End
+
+  are_you_still_sad[
+    shape="diamond",
+    label="Bạn vẫn còn thấy buồn chán?"
+  ]
+  are_you_still_sad -> rant[label="có"];
+  are_you_still_sad -> happy[label="không"];
+
+  rant[
+    shape="box",
+    label="Hãy viết một bài blog chi tiết về
+    vấn đề bạn gặp phải. Kiềm chế cảm xúc chủ quan.
+    Hãy lịch sự. Giúp đỡ cộng đồng tìm ra hướng
+    giải quyết. Cũng nên quan tâm tới stack khác
+    có thể hợp hơn với bạn (ví dụ: Ember)."
+  ]
+  rant -> happy
+
+  happy[
+    shape="box",
+    label="React làm bạn thấy hạnh phúc!
+    Hoặc, ít nhất thì nó cũng không làm bạn
+    cảm thấy buồn chán nữa."
+  ]
+  happy -> share
+
+  share [
+    shape="box",
+    style=rounded,
+    label="Hãy chia sẻ sơ đồ này: http://bit.ly/react-makes-you-sad.
+    Cảm hứng dựa trên: https://github.com/petehunt/react-howto."
+  ]
+}
